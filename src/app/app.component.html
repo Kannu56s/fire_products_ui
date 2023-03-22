@@ -44,7 +44,7 @@
         >
           <mat-icon>menu</mat-icon>
         </button>
-        <a mat-button routerLink="/">Zillionsg</a>
+        <a mat-button routerLink="/" class="Header_comp_Name">Zillionsg</a>
 
         <div class="example-spacer">
           <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
@@ -61,6 +61,18 @@
             </button>
           </form>
         </div>
+        <a mat-button routerLink="/">
+          <span
+            *ngIf="itemsCount > 0"
+            [matBadge]="itemsCount"
+            matBadgePosition="after"
+            matBadgeOverlap="false"
+            matBadgeColor="accent"
+            >Call</span
+          >
+          <mat-icon role="img" *ngIf="itemsCount === 0" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">call</mat-icon>
+        </a>
+        
 
         <a mat-button routerLink="cart">
           <span
@@ -71,7 +83,9 @@
             matBadgeColor="accent"
             >Cart</span
           >
-          <span *ngIf="itemsCount === 0">Cart</span>
+
+          <mat-icon role="img" *ngIf="itemsCount === 0" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">shopping_cart</mat-icon>
+          <!--<span >Cart</span>-->
         </a>
         <a mat-button *ngIf="!currentUser" routerLink="login">Login</a>
 

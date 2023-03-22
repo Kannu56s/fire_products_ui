@@ -10,14 +10,15 @@
     [navigation]="true"
     [pagination]="true"
   >
-    <ng-template swiperSlide>
-      <img src="../assets/images/banner1.jpg" alt="banner 1" />
+    <ng-template swiperSlide class="swiper-slide">
+      <img src="../assets/images/banner1.jpg" alt="banner 1" class="homeimg" />
     </ng-template>
 
-    <ng-template swiperSlide>
-      <img src="../assets/images/banner2.jpg" alt="banner 1" />
+    <ng-template swiperSlide class="swiper-slide">
+      <img src="../assets/images/banner2.jpg" alt="banner 1" class="homeimg" />
     </ng-template>
   </swiper>
+
   <h2>Latest Products</h2>
   <div
     *ngIf="!error"

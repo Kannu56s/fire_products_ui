@@ -9,8 +9,13 @@
   /* max-width: 980px; */
   min-height: 70vh;
 }
+
 .footer {
   text-align: center;
+  height: 50px;
+  padding-top: 10px;
+  background: #2e2a2a;
+  color: #fff;
 }
 
 .sidenav .header {
@@ -20,20 +25,25 @@
 form {
   font-size: 14px;
 }
+
 .mat-toolbar-row,
 .mat-toolbar-single-row {
   padding: 0;
 }
+
 .mat-form-field {
   width: 100px;
 }
+
 .mat-button {
   padding: 0;
 }
+
 @media only screen and (max-width: 480px) {
   .hide-small-screen {
     display: none;
   }
+
   .mat-vertical-content {
     padding: 0 !important;
   }

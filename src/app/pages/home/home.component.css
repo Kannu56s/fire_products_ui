@@ -1,6 +1,7 @@
 .bg-yellow {
   background-color: yellow;
 }
+
 /* .transition {
   transition: background 0.25s ease, color 0.25s ease;
 } */
@@ -8,7 +9,12 @@
   background-color: green;
   color: #fff;
 }
+
 .bg-blue {
   background-color: blue;
   color: #fff;
+}
+
+.homeimg {
+  width: 100%
 }
