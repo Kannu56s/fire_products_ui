@@ -1,90 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
+* { margin: 0; padding: 0; }
 
-html,
-body {
-  height: 100%;
-}
+html, body { min-height: 100%; } 
+body { margin: 0; font-family: Roboto, Helvetica, sans-serif; font-size: 14px; background-color: #f3f3f3; color: #333; } 
 
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
+#app { height: 100%;}
+.container-fluid { margin: 0 auto; padding: 20px; /* max-width: 980px; */ height: calc(100% - 141px) !important; overflow-y: auto; padding-left: 220px; } 
 
-.error-snackbar {
-  background: #ff4040;
-  color: #ffffff;
-}
+a { color: #c00c00; text-decoration: none; }
+.Header_comp_Name { font-size: 28px !important; font-weight: normal; } 
 
-.success-snackbar {
-  background: #40c040;
-  color: #ffffff;
-}
+footer {  width: 100%; text-align: center; padding: 10px 0; background: #2e2a2a; color: #fff; z-index: 2; } 
 
-.full-width {
-  width: 100%;
-}
+.full-width { width: 100%; } 
 
-.mat-step-header {
-  pointer-events: none !important;
-}
+.sidenav .heading { padding: 0 15px; } 
 
-.mat-list-item {
-  height: auto !important;
-  padding: 10px 0 !important;
-}
+.page-title { font-weight: 500; font-size: 24px; line-height: 1.5; margin: 15px 0 5px; }
 
-.warning-alert {
-  background: #f0c000;
-  color: #ffffff;
-  padding: 5px;
-  border-radius: 5px;
-}
+button.mat-primary { background-color: #666; color: #fff !important; font-weight: normal; }
+button.mat-primary:hover { background-color: #333;  }
 
-.error-alert {
-  background: #ff4040;
-  color: #ffffff;
-  padding: 5px;
-  border-radius: 5px;
-}
+.error-snackbar { background: #ff4040; color: #fff; } 
+.success-snackbar { background: #40c040; color: #fff; } 
 
-.success-alert {
-  background: #40c040;
-  color: #ffffff;
-  padding: 5px;
-  border-radius: 5px;
-}
+.mat-step-header { pointer-events: none !important; } 
+.mat-list-item { height: auto !important; padding: 10px 0 !important; } 
 
-.divider {
-  height: 20px;
-}
+.warning-alert { background: #f0c000; color: #ffffff; padding: 5px; border-radius: 5px; } 
+.error-alert { background: #ff4040; color: #ffffff; padding: 5px; border-radius: 5px; } 
+.success-alert { background: #40c040; color: #ffffff; padding: 5px; border-radius: 5px; } 
+
+.divider { height: 20px; } 
+ 
+.mat-form-field-flex { padding-left: 5px; } 
+.mat-toolbar { background: #c00c00 !important; color: #fff; padding: 0 15px; } 
+.mat-toolbar-row, .mat-toolbar-single-row { padding: 0 15px 0 0 !important; } 
+
+.mat-raised-button { background-color: #2e2a2a !important; } 
+
+.swiper-button-prev, .swiper-button-next { color: #2e2a2a !important; } 
 
 @media only screen and (max-width: 480px) {
-  .mat-vertical-content {
-    padding: 0 !important;
-  }
-}
+  .container-fluid { padding-left: 15px;}
 
-.mat-toolbar.mat-primary {
-  background: #c00c00 !important;
-  color: #fff
-}
-
-.Header_comp_Name {
-  font-size: 20px !important;
-}
-
-.mat-raised-button {
-  background-color: #2e2a2a !important;
-}
-
-.swiper-button-prev,
-.swiper-button-next {
-
-  color: #2e2a2a !important;
-}
-
-.mat-form-field-flex {
-
-  padding-left: 5px;
-
+  .mat-vertical-content { padding: 0 !important; } 
+  .material-icons { font-size: 20px; height: 30px; width: 30px; }
 }

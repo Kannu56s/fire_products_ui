@@ -28,23 +28,19 @@ export class AppComponent {
     private authService: AuthService,
     private productService: ProductService
   ) {
-    this.searchForm = this.formBuilder.group({
-      name: [''],
-    });
+    this.searchForm = this.formBuilder.group({ name: [''], });
   }
-  ngOnInit() {
+
+  ngOnInit() {    
     this.authService.currentUser.subscribe((x) => (this.currentUser = x));
-    this.cartService.currentCart.subscribe(
-      (x) => (this.itemsCount = x.itemsCount)
-    );
-    this.productService
-      .getCategories()
-      .subscribe((categories) => (this.categories = categories));
+    this.cartService.currentCart.subscribe((x) => (this.itemsCount = x.itemsCount));
+    this.productService.getCategories().subscribe((categories) => (this.categories = categories));   
+    
+    if(window.innerWidth > 480) document.getElementById("toggleBtn")?.click(); 
   }
+
   onSubmit() {
-    this.router.navigate(['/search'], {
-      queryParams: { name: this.searchForm.controls.name.value },
-    });
+    this.router.navigate(['/search'], { queryParams: { name: this.searchForm.controls.name.value }, });
   }
 
   logout() {

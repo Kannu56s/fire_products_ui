@@ -9,7 +9,7 @@ import { ProductService } from 'src/app/services/product.service';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css'],
+  styleUrls: ['../home/home.component.css', './search.component.css'],
 })
 export class SearchComponent {
   category = '';

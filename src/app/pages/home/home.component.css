@@ -1,20 +1,17 @@
-.bg-yellow {
-  background-color: yellow;
-}
+.price { line-height: 35px; font-size: 20px; padding-left: 10px; } 
+.list-item { color: #333; text-decoration: none; text-align: center; } 
+.item-name { font-size: 18px; line-height: 2; font-weight: 500; } 
+.mat-card:hover .item-name { color: #c00c00; } 
 
-/* .transition {
-  transition: background 0.25s ease, color 0.25s ease;
-} */
-.active-slide {
-  background-color: green;
-  color: #fff;
-}
+.mat-card-image { margin-bottom: 0;}
 
-.bg-blue {
-  background-color: blue;
-  color: #fff;
-}
+.mat-card { box-shadow:none; border: 1px solid #ddd;}
+.mat-card:hover { box-shadow: 2px 5px 15px #aaa; } 
 
-.homeimg {
-  width: 100%
-}
+.bg-yellow { background-color: yellow; } 
+
+/* .transition { transition: background 0.25s ease, color 0.25s ease; } */
+.active-slide { background-color: green; color: #fff; } 
+.bg-blue { background-color: blue; color: #fff; } 
+
+.homeimg { width: 100% } 

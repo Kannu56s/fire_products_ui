@@ -1,114 +1,76 @@
-<mat-sidenav-container
-  class="example-container"
-  (backdropClick)="sidenav.close()"
->
-  <mat-sidenav
-    class="sidenav"
-    #sidenav
-    (keydown.escape)="sidenav.close()"
-    disableClose
-  >
-    <div class="header" fxLayout="row" fxLayoutAlign="space-between center">
-      <div>
-        <h5>Shopping Category</h5>
-      </div>
-      <div>
-        <button
-          (click)="sidenav.close()"
-          mat-icon-button
-          aria-label="close menu icon"
-        >
+<mat-sidenav-container class="nav-container"> <!--  (backdropClick)="sidenav.close()" -->
+  <mat-sidenav class="sidenav" #sidenav> <!-- (keydown.escape)="sidenav.close()" disableClose -->
+    <div class="heading">
+      <div class="text-right">
+        <button (click)="sidenav.close()" mat-icon-button aria-label="close menu icon" id="closeBtn">
           <mat-icon>close</mat-icon>
         </button>
       </div>
+      <h4 class="menu-heading">Shopping Category</h4>
     </div>
+
     <mat-nav-list>
-      <a
-        (click)="sidenav.close()"
-        mat-list-item
-        [routerLink]="['/search']"
-        [queryParams]="{ category: category }"
-        *ngFor="let category of categories"
-      >
+      <a mat-list-item class="list-item" [routerLink]="['/search']" [queryParams]="{ category: category }" *ngFor="let category of categories">
+        <!-- (click)="sidenav.close()" -->
         {{ category }}
       </a>
     </mat-nav-list>
   </mat-sidenav>
+
   <mat-sidenav-content>
     <div id="app">
-      <mat-toolbar color="primary">
-        <button
-          (click)="sidenav.open()"
-          mat-icon-button
-          aria-label="open menu icon"
-        >
+      <mat-toolbar>
+        <button (click)="sidenav.open()" mat-icon-button aria-label="open menu icon" id="toggleBtn">
           <mat-icon>menu</mat-icon>
         </button>
+
         <a mat-button routerLink="/" class="Header_comp_Name">Zillionsg</a>
 
-        <div class="example-spacer">
-          <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
-            <mat-form-field floatLabel="never">
-              <input
-                matInput
-                placeholder="Search..."
-                formControlName="name"
-                name="query"
-              />
-            </mat-form-field>
-            <button class="hide-small-screen" mat-button color="secondary">
-              <mat-icon>search</mat-icon>
-            </button>
-          </form>
-        </div>
-        <a mat-button routerLink="/">
-          <span
-            *ngIf="itemsCount > 0"
-            [matBadge]="itemsCount"
-            matBadgePosition="after"
-            matBadgeOverlap="false"
-            matBadgeColor="accent"
-            >Call</span
-          >
-          <mat-icon role="img" *ngIf="itemsCount === 0" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">call</mat-icon>
+        <form class="searchForm" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+          <mat-form-field floatLabel="never" class="hide-small-screen">
+            <input matInput placeholder="Search..." formControlName="name" name="query" />
+          </mat-form-field>
+          <button mat-button title="Click to Search">
+            <mat-icon>search</mat-icon>
+          </button>
+        </form>
+
+        <a mat-button routerLink="/" title="Contact">
+          <span *ngIf="itemsCount > 0" [matBadge]="itemsCount" matBadgePosition="after" matBadgeOverlap="false"
+            matBadgeColor="accent">Call</span>
+          <mat-icon role="img" *ngIf="itemsCount === 0" class="mat-icon notranslate material-icons mat-icon-no-color"
+            aria-hidden="true" >call</mat-icon>
         </a>
-        
 
-        <a mat-button routerLink="cart">
-          <span
-            *ngIf="itemsCount > 0"
-            [matBadge]="itemsCount"
-            matBadgePosition="after"
-            matBadgeOverlap="false"
-            matBadgeColor="accent"
-            >Cart</span
-          >
+        <a mat-button routerLink="cart" *ngIf="currentUser" title="Shopping Cart">
+          <span *ngIf="itemsCount > 0" [matBadge]="itemsCount" matBadgePosition="after" matBadgeOverlap="false"
+            matBadgeColor="accent">Cart</span>
 
-          <mat-icon role="img" *ngIf="itemsCount === 0" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">shopping_cart</mat-icon>
+          <mat-icon role="img" *ngIf="itemsCount === 0" class="mat-icon notranslate material-icons mat-icon-no-color"
+            aria-hidden="true">shopping_cart</mat-icon>
           <!--<span >Cart</span>-->
         </a>
+
         <a mat-button *ngIf="!currentUser" routerLink="login">Login</a>
 
         <ng-container *ngIf="currentUser">
-          <button mat-button [matMenuTriggerFor]="menu">
-            {{ currentUser.name }}
-          </button>
+          <a mat-button [matMenuTriggerFor]="menu">{{ currentUser.name }}</a>
+
           <mat-menu #menu="matMenu">
             <a mat-menu-item routerLink="profile">Profile</a>
-            <a mat-menu-item routerLink="order-history">Order Hisotry</a>
-            <a *ngIf="currentUser" mat-menu-item routerLink="admin/dashboard"
-              >Admin</a
-            >
-            <button *ngIf="currentUser" mat-menu-item (click)="logout()">
-              LogOut
-            </button>
+            <a mat-menu-item routerLink="order-history">Order History</a>
+            <a *ngIf="currentUser" mat-menu-item routerLink="admin/dashboard">Admin</a>
+            <button *ngIf="currentUser" mat-menu-item (click)="logout()">Logout</button>
           </mat-menu>
         </ng-container>
       </mat-toolbar>
-      <div class="container">
+
+      <div class="container-fluid">
         <router-outlet></router-outlet>
       </div>
-      <div class="footer">Zillionsg. All rights reserved.</div>
+
+      <footer class="footer">Zillionsg. All rights reserved.</footer>
+
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

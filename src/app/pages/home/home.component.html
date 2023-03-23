@@ -3,13 +3,7 @@
 </div>
 
 <ng-template #result>
-  <swiper
-    [autoHeight]="true"
-    [autoplay]="true"
-    [loop]="true"
-    [navigation]="true"
-    [pagination]="true"
-  >
+  <swiper [autoHeight]="true" [autoplay]="true" [loop]="true" [navigation]="true" [pagination]="true">
     <ng-template swiperSlide class="swiper-slide">
       <img src="../assets/images/banner1.jpg" alt="banner 1" class="homeimg" />
     </ng-template>
@@ -19,32 +13,22 @@
     </ng-template>
   </swiper>
 
-  <h2>Latest Products</h2>
-  <div
-    *ngIf="!error"
-    fxLayout="row wrap"
-    fxLayoutGap="20px grid"
-    fxLayoutGap.xs="10px grid"
-  >
-    <div
-      fxFlex="25%"
-      fxFlex.sm="33%"
-      fxFlex.xs="100%"
-      *ngFor="let product of products"
-    >
+  <h2 class="page-title">Latest Products</h2>
+  <div *ngIf="!error" fxLayout="row wrap" fxLayoutGap="20px grid" fxLayoutGap.xs="10px grid">
+    <div fxFlex="25%" fxFlex.sm="33%" fxFlex.xs="100%" *ngFor="let product of products">
       <mat-card class="mat-elevation-z4">
-        <a [routerLink]="'/product/' + product.slug">
+        <a [routerLink]="'/product/' + product.slug" class="list-item">
           <img mat-card-image [src]="product.image" />
           <mat-card-content>
-            <p>
-              {{ product.name }}
-            </p>
+            <p class="item-name">{{ product.name }}</p>
             <app-rating [rating]="product.rating"></app-rating>
           </mat-card-content>
         </a>
+
         <mat-card-actions>
-          <span>${{ product.price }}</span>
-          <button mat-button (click)="addToCart(product)">ADD TO CART</button>
+          <span class="price">${{ product.price }}</span>
+          <button mat-button (click)="addToCart(product)" color="primary" style="float:right">Add to Cart</button>
+          <div style="clear: both;"></div>
         </mat-card-actions>
       </mat-card>
     </div>

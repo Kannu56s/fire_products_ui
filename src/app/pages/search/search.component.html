@@ -4,27 +4,25 @@
 
 <ng-template #result>
   <div *ngIf="!error">
-    <div>{{ products.length }} Results</div>
+    <div *ngIf="!products.length">No results found !</div>
+
+    <div *ngIf="products.length">{{ products.length }} Results</div>
     <div class="divider"></div>
     <div fxLayout="row wrap" fxLayoutGap="20px grid" fxLayoutGap.xs="10px grid">
-      <div
-        fxFlex="25%"
-        fxFlex.sm="33%"
-        fxFlex.xs="100%"
-        *ngFor="let product of products"
-      >
-        <mat-card class="mat-elevation-z4">
-          <a [routerLink]="'/product/' + product.slug">
+      <div fxFlex="25%" fxFlex.sm="33%" fxFlex.xs="100%" *ngFor="let product of products">
+        <mat-card class="">
+          <a [routerLink]="'/product/' + product.slug" class="list-item">
             <img mat-card-image [src]="product.image" />
+            
             <mat-card-content>
-              <p>
-                {{ product.name }}
-              </p>
+              <p class="item-name">{{ product.name }}</p>
             </mat-card-content>
           </a>
+
           <mat-card-actions>
-            <span>${{ product.price }}</span>
-            <button mat-button (click)="addToCart(product)">ADD TO CART</button>
+            <span class="price">${{ product.price }}</span>
+            <button mat-button (click)="addToCart(product)" color="primary" style="float:right">ADD TO CART</button>
+            <div style="clear: both;"></div>
           </mat-card-actions>
         </mat-card>
       </div>
